@@ -1,4 +1,4 @@
-# SportsMate-Sports management web application.
+# SportsMate- A full-stack web application designed to connect players, coaches, and sports enthusiasts on a single platform.
 
 ## Features
 - User authentication (Login/Register)
