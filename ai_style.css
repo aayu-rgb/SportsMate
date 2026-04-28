@@ -1,0 +1,81 @@
+#ai-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #00eaff;
+    color: black;
+    font-size: 24px;
+    padding: 14px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+#ai-box {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 320px;
+    height: 420px;
+    background: #0f1720;
+    border-radius: 12px;
+    display: none;
+    flex-direction: column;
+    box-shadow: 0 0 20px rgba(0,0,0,0.6);
+    z-index: 9999;
+}
+
+#ai-header {
+    background: #00eaff;
+    color: black;
+    padding: 12px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
+#ai-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    color: white;
+}
+
+.ai-msg {
+    margin-bottom: 8px;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.user {
+    background: #1e2a36;
+    text-align: right;
+}
+
+.bot {
+    background: #00eaff;
+    color: black;
+}
+
+#ai-input {
+    display: flex;
+    padding: 10px;
+    background: #0b121a;
+}
+
+#ai-input input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+}
+
+#ai-input button {
+    margin-left: 6px;
+    background: #00eaff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}

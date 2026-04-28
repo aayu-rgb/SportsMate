@@ -1,0 +1,31 @@
+<?php session_start(); ?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Book Tickets - SportsMate</title>
+<style>
+body{background:#0b0f14;color:white;font-family:Arial;padding:20px}
+.card{background:#1b1f27;padding:20px;border-radius:12px;margin-bottom:15px}
+a{color:#00eaff;font-size:18px;text-decoration:none}
+</style>
+</head>
+<body>
+
+<h2>🎟️ Book Match Tickets</h2>
+
+<div class="card">
+<a href="https://in.bookmyshow.com" target="_blank">🏏 Cricket Tickets</a>
+</div>
+
+<div class="card">
+<a href="https://www.ticketmaster.com" target="_blank">⚽ Football Tickets</a>
+</div>
+
+<div class="card">
+<a href="https://www.insider.in" target="_blank">🏀 Sports Events</a>
+</div>
+
+<a href="dashboard.php">⬅ Back</a>
+
+</body>
+</html>

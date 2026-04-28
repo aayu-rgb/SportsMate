@@ -1,0 +1,22 @@
+<?php
+header("Content-Type: application/json");
+
+$data = json_decode(file_get_contents("php://input"), true);
+$userMessage = strtolower(trim($data['message'] ?? ''));
+
+// SIMPLE AI LOGIC (can upgrade later)
+$response = "I'm here to help you with sports!";
+
+if (strpos($userMessage, 'cricket') !== false) {
+    $response = "🏏 Focus on pitch conditions, rotate strike, and save wickets for the last overs.";
+}
+elseif (strpos($userMessage, 'football') !== false) {
+    $response = "⚽ Maintain possession, watch stamina, and exploit wing play.";
+}
+elseif (strpos($userMessage, 'hello') !== false) {
+    $response = "Hello 👋 How can I help you today?";
+}
+
+echo json_encode([
+    "reply" => $response
+]);

@@ -1,0 +1,126 @@
+<?php
+// dashboard.php
+session_start();
+require "config.php";
+
+// User must be logged in
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit;
+}
+
+$userName = $_SESSION['user_name'];
+
+// Static sports
+$sports = [
+    ["⚽", "Football"],
+    ["🏀", "Basketball"],
+    ["🎾", "Tennis"],
+    ["🏏", "Cricket"],
+    ["🏐", "Volleyball"],
+    ["🏓", "Table Tennis"],
+    ["🥊", "Boxing"],
+    ["🏃", "Running"],
+    ["🏊", "Swimming"],
+    ["⚡", "Badminton"]
+];
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dashboard | SportsMate</title>
+
+<style>
+body {
+    margin: 0;
+    background: linear-gradient(180deg,#07080a,#0f1724);
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background: #0e1220;
+    padding: 18px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar a {
+    color: #ff5555;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+    padding: 30px;
+}
+
+.card {
+    background: rgba(255,255,255,0.05);
+    padding: 25px;
+    border-radius: 14px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.08);
+}
+
+.icon {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <h2>Hello, <?= htmlspecialchars($userName) ?></h2>
+    <a href="logout.php">Logout</a>
+</div>
+
+<!-- MAIN DASHBOARD -->
+<div class="grid">
+    <a href="users_list.php" class="card">
+        <div class="icon">👥</div>
+        Friends
+    </a>
+
+    <a href="users_list.php" class="card">
+        <div class="icon">💬</div>
+        Chat
+    </a>
+
+    <a href="notifications.php" class="card">
+        <div class="icon">🔔</div>
+        Notifications
+    </a>
+
+    <a href="events.php" class="card">
+        <div class="icon">📅</div>
+        Events
+    </a>
+
+    <a href="videos.php" class="card">
+        <div class="icon">🎥</div>
+        Videos
+    </a>
+
+    <a href="kits.php" class="card">
+        <div class="icon">🛒</div>
+        Sports Kits
+    </a>
+</div>
+
+</body>
+</html>

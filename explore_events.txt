@@ -1,0 +1,13 @@
+<?php
+$events = $conn->query("SELECT * FROM events ORDER BY match_date ASC");
+?>
+
+<?php while($e = $events->fetch_assoc()): ?>
+<div class="event-card">
+  <h3><?= $e['match_name'] ?></h3>
+  <p><?= $e['venue'] ?></p>
+  <p><?= $e['match_date'] ?></p>
+
+  <a href="event_details.php?id=<?= $e['id'] ?>">View Details</a>
+</div>
+<?php endwhile; ?>

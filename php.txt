@@ -1,0 +1,51 @@
+<?php
+session_start();
+require "config.php";
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit;
+}
+
+$user_id = $_SESSION['user_id'];
+
+// Mark all as seen
+$conn->query("UPDATE notifications SET seen = 1 WHERE user_id = $user_id");
+
+// Fetch notifications
+$notifs = $conn->query("
+    SELECT * FROM notifications 
+    WHERE user_id = $user_id 
+    ORDER BY created_at DESC
+");
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Notifications</title>
+<style>
+body { background:#0b0b0b; color:white; font-family:Arial; padding:20px; }
+.box { background:#1a1a1a; padding:15px; margin-bottom:10px; border-radius:10px; }
+.time { font-size:12px; color:#aaa; }
+a { color:#00eaff; text-decoration:none; }
+</style>
+</head>
+<body>
+
+<h2>🔔 Notifications</h2>
+
+<?php if ($notifs->num_rows == 0): ?>
+    <p>No notifications yet</p>
+<?php endif; ?>
+
+<?php while($n = $notifs->fetch_assoc()): ?>
+    <div class="box">
+        <?= htmlspecialchars($n['message']) ?>
+        <div class="time"><?= $n['created_at'] ?></div>
+    </div>
+<?php endwhile; ?>
+
+<a href="dashboard.php">⬅ Back</a>
+
+</body>
+</html>
